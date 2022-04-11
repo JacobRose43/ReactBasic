@@ -4,35 +4,44 @@ class App extends Component {
 	constructor(props) {
 		super();
 		this.state = {
-			name: { firstName: 'Jacob', lastName: 'Rose' },
+			monsters: [],
 		};
+	}
+
+	componentDidMount() {
+		fetch('https://jsonplaceholder.typicode.com/users')
+			.then((response) => response.json())
+			.then((users) => {
+				this.setState(
+					// when update is complete react have to ReRender again
+					() => {
+						return { monsters: users };
+					},
+					() => {
+						console.log(this.state);
+					}
+				);
+			});
 	}
 
 	render() {
 		return (
-			<div>
-				<div>
-					{this.state.name.firstName} {this.state.name.lastName}
-				</div>
-				<button
-					onClick={() => {
-						this.setState(
-							(state, props) => {
-								return {
-									name: { firstName: 'Harry', lastName: 'Potter' },
-								};
-							},
-							() => {
-								// this function is going to run ONLY IF all state changes have been applied
-								console.log(this.state);
-							}
-						);
-					}}>
-					Change{' '}
-				</button>
+			<div className='App'>
+				{this.state.monsters.map((monster) => {
+					return (
+						<div key={monster.id}>
+							<h1>{monster.name}</h1>
+						</div>
+					);
+				})}
 			</div>
 		);
 	}
 }
 
 export default App;
+
+// 1 - components
+// 2 - render
+// 3 - updating
+// 4 - if(update) => render AGAIN (it means - reRender)
