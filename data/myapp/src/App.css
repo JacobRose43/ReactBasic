@@ -7,6 +7,14 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	background: linear-gradient(to left, rgba(7, 27, 82, 1) 0%, rgba(0, 128, 128, 1) 100%);
 	text-align: center;
+	scrollbar-width: none;
+	-ms-overflow-style: none; /* for Internet Explorer, Edge */
+	scrollbar-width: none; /* for Firefox */
+	overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+	display: none; /* for Chrome, Safari, and Opera */
 }
 
 .app-title {

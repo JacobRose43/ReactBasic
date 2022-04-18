@@ -1,8 +1,9 @@
 // import { Component } from 'react';
 import './card.style.css';
 
-const Card = ({ monster }) => {
-	const { id, name, email } = monster;
+const Card = ({ monster: { id, name, email } }) => {
+	// const { id, name, email } = monster; // MOST PREFER
+
 	return (
 		<div className='card-container' key={id}>
 			<img alt='monster' src={`https://robohash.org/${id}?set=set2&size=180x180`} />
