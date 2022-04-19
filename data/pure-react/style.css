@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 * {
-	font-family: 'Ms Madi', cursive;
-	font-size: 36px;
+	font-family: 'Lato', sans-serif;
+	font-size: 24px;
 }
