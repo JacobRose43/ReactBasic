@@ -105,12 +105,9 @@ const SignUpForm = () => {
 					}}
 				/>
 
-				<FormInput
-					inputOptions={{
-						type: 'submit',
-						value: 'Sign Up',
-					}}
-				/>
+				<Button buttonType='' type='submit'>
+					Sign Up
+				</Button>
 			</form>
 		</div>
 	);
