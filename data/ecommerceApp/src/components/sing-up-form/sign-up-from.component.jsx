@@ -1,6 +1,18 @@
+//REACT
 import { useState } from 'react';
 
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
+// FIREBASE
+import {
+	createAuthUserWithEmailAndPassword,
+	createUserDocumentFromAuth,
+} from '../../utils/firebase/firebase.utils';
+
+// COMPONENTS
+import FormInput from '../form-input/form-input.component';
+import Button from '../button/button.component';
+
+// STYLE
+import './sign-up-form.style.scss';
 
 const defaultFormFields = {
 	displayName: '',
@@ -45,22 +57,60 @@ const SignUpForm = () => {
 	};
 
 	return (
-		<div>
-			<h1>Sign Up with your email and password</h1>
+		<div className='sign-up-container'>
+			<h2>Don't have an account?</h2>
+			<span>Sign Up with your email and password</span>
 			<form onSubmit={handleSubmit}>
-				<label htmlFor=''>Display Name</label>
-				<input required type='text' onChange={handleChange} name='displayName' value={displayName} />
+				<FormInput
+					label='Display Name'
+					inputOptions={{
+						required: true,
+						type: 'text',
+						onChange: handleChange,
+						name: 'displayName',
+						value: displayName,
+					}} // double brackets coz its nested element in html (javascript) { and then inside creating { object } }
+				/>
 
-				<label htmlFor=''>Email</label>
-				<input required type='email' onChange={handleChange} name='email' value={email} />
+				<FormInput
+					label='Email'
+					inputOptions={{
+						required: true,
+						type: 'email',
+						onChange: handleChange,
+						name: 'email',
+						value: email,
+					}}
+				/>
 
-				<label htmlFor=''>Password</label>
-				<input required type='password' onChange={handleChange} name='password' value={password} />
+				<FormInput
+					label='Password'
+					inputOptions={{
+						required: true,
+						type: 'password',
+						onChange: handleChange,
+						name: 'password',
+						value: password,
+					}}
+				/>
 
-				<label htmlFor=''>Confirm Password</label>
-				<input required type='password' onChange={handleChange} name='confirmPassword' value={confirmPassword} />
+				<FormInput
+					label='Confirm Password'
+					inputOptions={{
+						required: true,
+						type: 'password',
+						onChange: handleChange,
+						name: 'confirmPassword',
+						value: confirmPassword,
+					}}
+				/>
 
-				<input type='submit' value='Sign Up' />
+				<FormInput
+					inputOptions={{
+						type: 'submit',
+						value: 'Sign Up',
+					}}
+				/>
 			</form>
 		</div>
 	);
