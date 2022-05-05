@@ -1,5 +1,5 @@
 //REACT
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 // FIREBASE
 import {
@@ -8,6 +8,7 @@ import {
 	signInAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase.utils';
 
+import { UserContext } from '../../contexts/user.context';
 // COMPONENTS
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
@@ -23,6 +24,7 @@ const defaultFormFields = {
 const SignInForm = () => {
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { email, password } = formFields;
+	const { setCurrentUser } = useContext(UserContext);
 
 	const resetFormFileds = () => {
 		setFormFields(defaultFormFields);
@@ -37,8 +39,9 @@ const SignInForm = () => {
 		e.preventDefault();
 
 		try {
-			const resposne = await signInAuthUserWithEmailAndPassword(email, password);
+			const { user } = await signInAuthUserWithEmailAndPassword(email, password);
 			resetFormFileds();
+			setCurrentUser(user);
 			alert('logged in!');
 		} catch (e) {
 			switch (e.code) {
