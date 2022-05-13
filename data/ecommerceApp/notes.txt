@@ -1,0 +1,6 @@
+cart context - read again 
+
+REPEAT: 
+- reduce function
+- map function
+- spread operator
