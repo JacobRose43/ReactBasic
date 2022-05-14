@@ -4,6 +4,7 @@ body {
 	font-family: 'Radio Canada';
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	overflow-y: scroll;
 }
 
 code {
@@ -18,3 +19,7 @@ a {
 * {
 	box-sizing: border-box;
 }
+
+// ::-webkit-scrollbar {
+// 	display: none;
+// }
