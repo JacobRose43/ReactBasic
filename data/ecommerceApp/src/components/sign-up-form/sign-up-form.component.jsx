@@ -9,7 +9,7 @@ import {
 
 // COMPONENTS
 import FormInput from '../form-input/form-input.component';
-import Button from '../button/button.component';
+import Button, { BUTTON_TYPES_CLASSES } from '../button/button.component';
 
 // STYLE
 import './sign-up-form.style.scss';
@@ -106,7 +106,7 @@ const SignUpForm = () => {
 					}}
 				/>
 
-				<Button buttonType='' type='submit'>
+				<Button buttonType={BUTTON_TYPES_CLASSES.base} type='submit'>
 					Sign Up
 				</Button>
 			</form>
