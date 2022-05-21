@@ -15,6 +15,8 @@ export const BaseButton = styled.button`
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
+	transition: all 300ms;
+	border: 1px solid white;
 
 	&:hover {
 		background-color: white;
