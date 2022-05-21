@@ -4,13 +4,12 @@ import { useState } from 'react';
 // FIREBASE
 import {
 	signInWithGooglePopup,
-	createUserDocumentFromAuth,
 	signInAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase.utils';
 
 // COMPONENTS
 import FormInput from '../form-input/form-input.component';
-import Button from '../button/button.component';
+import Button, { BUTTON_TYPES_CLASSES } from '../button/button.component';
 
 // STYLE
 import './sign-in-form.style.scss';
@@ -80,10 +79,11 @@ const SignInForm = () => {
 				/>
 
 				<div className='buttons-container'>
-					<Button type='submit' buttonType=''>
-						Sign In
-					</Button>
-					<Button type='button' buttonType='google' onClick={signInWithGoogle}>
+					<Button type='submit'>Sign In</Button>
+					<Button
+						buttonType={BUTTON_TYPES_CLASSES.google}
+						type='button'
+						onClick={signInWithGoogle}>
 						Google Sign In
 					</Button>
 				</div>
