@@ -10,9 +10,9 @@ import './category.style.scss';
 
 const Category = () => {
 	const { category } = useParams();
+	console.log('render/re-rendering category component');
 	const categoriesMap = useSelector(selectCategoriesMap);
 	const [products, setProducts] = useState(categoriesMap[category]);
-	console.log('render/re-rendering category component');
 
 	useEffect(() => {
 		console.log('effect fired celling setProducts');
