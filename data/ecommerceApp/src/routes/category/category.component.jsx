@@ -12,6 +12,8 @@ const Category = () => {
 	const { category } = useParams();
 	console.log('render/re-rendering category component');
 	const categoriesMap = useSelector(selectCategoriesMap);
+	// it only rerenders this whole component if
+	// the return of the selector function you passed to it is diffrent
 	const [products, setProducts] = useState(categoriesMap[category]);
 
 	useEffect(() => {
