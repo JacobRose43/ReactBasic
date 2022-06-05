@@ -8,7 +8,7 @@ export const selectCategories = createSelector(
 );
 
 export const selectCategoriesMap = createSelector([selectCategories], (categories) => {
-	categories.reduce((acc, category) => {
+	return categories.reduce((acc, category) => {
 		// acc = accumulator
 		const { title, items } = category;
 		acc[title.toLowerCase()] = items;
